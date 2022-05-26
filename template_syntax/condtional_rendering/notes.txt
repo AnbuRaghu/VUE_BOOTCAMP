@@ -1,0 +1,129 @@
+conditional rendering
+----------------------
+   // the directive we use for conditional rendering is v-if.. it accepts boolean
+            we have to bind the data  like below
+e.g:1)
+<html>
+    <head>
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="index.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app" class="bg-blue-300 flex flex-col justify-center items-center h-screen w-full text-sm">
+            // the directive we use for conditional rendering is v-if.. it accepts boolean
+            we have to bind the data  like below
+            <div v-if="box" class="w-20 h-20 bg-red-700">&nbsp;</div>
+
+        </div>
+        
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    box: false,
+                }
+            });
+        </script>
+    </body>
+</html>
+----------------------------------------------
+e.g:2)
+/ we can also put condtionally js expression like b elow
+<html>
+    <head>
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="index.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app" class="bg-blue-300 flex flex-col justify-center items-center h-screen w-full text-sm">
+            // we can also put condtionally js expression like b elow
+            <div v-if="box > 5" class="w-20 h-20 bg-red-700">{{text}}</div>
+
+        </div>
+        
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    box: 10,
+                    text:'hekko'
+                }
+            });
+        </script>
+    </body>
+</html>
+-----------------------------------------------------
+e.g:3)
+
+          // we can also attach our conditional rendering in computed property too
+<html>
+    <head>
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="index.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app" class="bg-blue-300 flex flex-col justify-center items-center h-screen w-full text-sm">
+            
+            <div v-if="boxShow" class="w-20 h-20 bg-red-700">&nbsp;</div>
+
+        </div>
+        
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    box: 10,
+                },
+               // we can also attach our conditional rendering in computed property too
+                computed: {
+                    boxShow: function () {
+                        return this.box > 5;
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>
+----------------------------------------
+template syntax
+
+// template syntax we can use whenever we want to group something together..we can also add div instead template but it is an addtional markup..it's like <></> this in react
+--------------------
+<html>
+    <head>
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="index.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app" class="bg-blue-300 flex flex-col justify-center items-center h-screen w-full text-sm">
+            
+            <template v-if="boxShow" >// template syntax we can use whenever we want to group something together..we can also add div instead template but it is an addtional markup..it's like <></> this in react
+                <div class="w-20 h-20 bg-red-700">&nbsp;</div>
+                <div class="w-20 h-20 bg-red-700">&nbsp;</div>
+                <div class="w-20 h-20 bg-red-700">&nbsp;</div>
+            </template>
+
+        </div>
+        
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    box: 10,
+                },
+                computed: {
+                    boxShow: function () {
+                        return this.box > 15;
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>
+-----------------------------------------
+note:
+// v-if removes any element from dom it's not like showing and hiding things

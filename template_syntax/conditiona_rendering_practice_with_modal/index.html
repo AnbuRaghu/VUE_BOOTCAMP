@@ -1,0 +1,27 @@
+<html>
+    <head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="index.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app" class="bg-blue-300 h-screen w-full flex justify-center items-center text-sm relative">
+            //if modal is true thern we show the pop up
+            <div v-if="modal" class="absolute top-0 w-full bg-green-200 text-center py-2">
+                Here's some more information. <button @click.prevent="modal = false">X</button>
+            </div>
+            // here we set the toggling and conditionally rendering the text of button
+            <button @click.prevent="modal = ! modal">{{ modal ? 'Close' : 'Open' }} Modal</button>
+            
+        </div>
+        
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    modal: false,
+                }
+            });
+        </script>
+    </body>
+</html>

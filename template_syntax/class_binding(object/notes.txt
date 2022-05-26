@@ -1,0 +1,189 @@
+class binding(object)
+--------------------------
+ //class binding we can give class according dynamically,we have to use directive v-bind:class
+e.g1
+----
+<html>
+    <head>
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="index.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        
+        <style>
+            .danger {
+                color: red;
+            }
+            .active {
+                color: green;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app" class="bg-blue-300 h-screen w-full flex flex-col justify-center items-center text-sm relative">
+            //class binding we can give class according dynamically,we have to use directive v-bind:class
+            <div v-bind:class="{ 'danger': 5 > 2 }">Text</div>
+            
+        </div>
+        
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    
+                }
+            });
+        </script>
+    </body>
+</html>
+---------------------------------------------------------
+
+   // this is object syntay 1st params is for key that is the class we want to apply value can be some sort of boolean
+   e.g2)
+------
+<html>
+    <head>
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="index.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        
+        <style>
+            .danger {
+                color: red;
+            }
+            .active {
+                color: green;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app" class="bg-blue-300 h-screen w-full flex flex-col justify-center items-center text-sm relative">
+            // this is object syntay 1st params is for key that is the class we want to apply value can be some sort of boolean
+            <div v-bind:class="{ 'danger': isDanger }">Text</div>
+            
+        </div>
+        
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    isDanger: true,
+                }
+            });
+        </script>
+    </body>
+</html>
+-------------------------------------------------------------------
+ /// we can have another class like this font-bold is tailwind css
+e.g3)
+<html>
+    <head>
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="index.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        
+        <style>
+            .danger {
+                color: red;
+            }
+            .active {
+                color: green;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app" class="bg-blue-300 h-screen w-full flex flex-col justify-center items-center text-sm relative">
+            /// we can have another class like this font-bold is tailwind css
+            <div v-bind:class="{ 'danger': isDanger }" class="font-bold">Text</div>
+            
+        </div>
+        
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    isDanger: true,
+                }
+            });
+        </script>
+    </body>
+</html>
+------------------------------------------------
+   we can give another property like this by adding 2nd items this means give me font-bold class if important is true
+e.g4)
+<html>
+    <head>
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="index.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        
+        <style>
+            .danger {
+                color: red;
+            }
+            .active {
+                color: green;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app" class="bg-blue-300 h-screen w-full flex flex-col justify-center items-center text-sm relative">
+            we can give another property like this by adding 2nd items this means give me font-bold class if important is true
+            <div :class="{ 'danger': isDanger, 'font-bold': important }">Text</div>
+            
+        </div>
+        
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    isDanger: true,
+                    important: true,
+                }
+            });
+        </script>
+    </body>
+</html>
+-------------------------------------------------------------
+ // we can also bind the class to the computed property
+e.g5
+<html>
+    <head>
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="index.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        
+        <style>
+            .danger {
+                color: red;
+            }
+            .active {
+                color: green;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app" class="bg-blue-300 h-screen w-full flex flex-col justify-center items-center text-sm relative">
+            // we can also bind the class to the computed property
+            <div :class="styling">Text</div>
+            
+        </div>
+        
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    isDanger: false,
+                    important: false,
+
+                }, 
+                computed: {
+                    styling: function () {
+                        return {
+                            'danger': 25 < 5,
+                        }
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

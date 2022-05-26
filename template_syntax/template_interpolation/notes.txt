@@ -1,0 +1,112 @@
+directives
+----------------
+v-once:
+it won't refresh it remains as Hello, if we use v-once
+e.g
+----
+<html>
+    <head>
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="index.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app" class="bg-blue-300 flex flex-col justify-center items-center h-screen w-full">
+            <div v-once>Old: {{ message }}</div>// it won't refresh it remains as Hello, if we use v-once
+            
+            <div>New: {{ message }}</div>
+            
+            <input v-model="message" />
+        </div>
+        
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    message: 'Hello',
+                }
+            });
+        </script>
+    </body>
+</html>
+-----------------------------------------------------------------------
+v-html
+-----------
+ let's imagine if i have html here,in the browser it won't show as html whereas it shows as text
+
+e,g
+-------
+<html>
+    <head>
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="index.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app" class="bg-blue-300 flex flex-col justify-center items-center h-screen w-full">
+            <div v-html="message"></div>// we need the v-html directive and pass the data there
+        </div>
+        
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    message: '<strong>HELLO</strong>',
+                      let's imagine if i have html here,in the browser it won't show as html whereas it shows as text
+                }
+            });
+        </script>
+    </body>
+</html>
+-------------------------------------------------------------------------------
+v-text
+-----------------------
+it outputs the text not as html
+
+
+e.g
+<html>
+    <head>
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="index.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app" class="bg-blue-300 flex flex-col justify-center items-center h-screen w-full">
+            <div v-text="message"></div>// it outputs the text not as html
+        </div>
+        
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    message: '<strong>HELLO</strong>',
+                }
+            });
+        </script>
+    </body>
+</html>
+--------------------------------------------------------------------
+js expression
+...................
+<html>
+    <head>
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="index.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app" class="bg-blue-300 flex flex-col justify-center items-center h-screen w-full">
+            <div>{{ message ? 'YES' : 'NO' }}</div>/// we can also use js expression like this
+        </div>
+        
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    message: false,
+                }
+            });
+        </script>
+    </body>
+</html>

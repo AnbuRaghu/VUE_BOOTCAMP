@@ -1,0 +1,94 @@
+props
+-----------
+e.g)1
+<html>
+    <head>
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app" class="bg-blue-200 w-full h-screen ">
+            here we pass the user-id as props and we can get that down in the component via property called props like below
+            <title-text user-id="123"></title-text>
+        </div>
+        
+        <script>
+            Vue.component('title-text', {
+                template: '<div></div>', 
+                // this is an arrray note we pass in as user-id but here we get it as userId for json kind of things we need this it would automatically 
+                props: ['userId']
+            });
+            
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    
+                }
+            });
+        </script>
+    </body>
+</html>
+------------------------------------------------------------------
+e.g2)
+outputting props
+ // we can get the props using {{}} here and output it
+<html>
+    <head>
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app" class="bg-blue-200 w-full h-screen ">
+            <title-text user-id="456"></title-text>
+        </div>
+        
+        <script>
+            Vue.component('title-text', {
+                // we can get the props using {{}} here and output it
+                template: '<div>{{ userId }}</div>', 
+                
+                props: ['userId']
+            });
+            
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    
+                }
+            });
+        </script>
+    </body>
+</html>
+------------------------------------------------
+e.g3
+ways to pass data via props
+<html>
+    <head>
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app" class="bg-blue-200 w-full h-screen ">
+            // there are 2 way to pass data 1st is as string as shown in example like this user-id="456"  2nd is passing an object like shown
+            // if we wanna pass data as object when we get this in our component we can't get it unless we us e v-bind
+            <title-text user-id="456" link="{ title: 'Home', link: '#home' }"></title-text>
+                <title-text user-id="456" v-bind:link="{ title: 'Home', link: '#home' }"></title-text>
+        </div>
+        
+        <script>
+            Vue.component('title-text', {
+                template: '<div>{{ link.title }}</div>', 
+                
+                props: ['userId', 'link']
+            });
+            
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    
+                }
+            });
+        </script>
+    </body>
+</html>
+------------------------------------------------------

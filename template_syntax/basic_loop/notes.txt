@@ -1,0 +1,150 @@
+v-for
+-----------------
+looping basics
+-----------------
+e.g1)
+<html>
+    <head>
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="index.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app" class="bg-blue-300 h-screen w-full flex flex-col justify-center items-center text-sm relative">
+            // here we get 5 hello and i is index but it starts from 1 if we display it we get
+            hello 1
+            hello 2
+            hello 3
+            hello 4
+            hello 5
+            <div v-for="i in 5">Hello {{ i }}</div>
+            
+        </div>
+        
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    
+                }
+            });
+        </script>
+    </body>
+</html>
+---------------------------------------------------
+e.g2)
+<html>
+    <head>
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="index.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app" class="bg-blue-300 h-screen w-full flex flex-col justify-center items-center text-sm relative">
+            // to get the key we have to wrap the index and as 2nd parameter we get key int his example if we use k then we will get like this
+            hello 0
+            hello 1
+            hello 2
+            hello 3
+            hello 4
+         
+            <div v-for="(i, k) in 5">Hello {{ k }}</div>
+            
+        </div>
+        
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    
+                }
+            });
+        </script>
+    </body>
+</html>
+------------------------------------------------------------
+e.g3)
+<html>
+    <head>
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="index.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app" class="bg-blue-300 h-screen w-full flex flex-col justify-center items-center text-sm relative">
+            // we can iterate an array like this everything from the array we get as 1st parameter here in this example in i
+            <div v-for="i in list"> {{ i }}</div>
+            
+        </div>
+        
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    list: [
+                        'item 1', 'item 2', 'item 3'
+                    ]
+                }
+            });
+        </script>
+    </body>
+</html>
+----------------------
+e.g4
+<html>
+    <head>
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="index.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app" class="bg-blue-300 h-screen w-full flex flex-col justify-center items-center text-sm relative">
+            // to iterate an object
+            <div v-for="item in list">Hello {{ item.name }} ({{ item.age }})</div>
+            
+        </div>
+        
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    list: [
+                        { name: 'John', age: 25 },
+                        { name: 'Jane', age: 20 },
+                    ]
+                }
+            });
+        </script>
+    </body>
+</html>
+-----------------------------
+e.g5)
+<html>
+    <head>
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="index.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app" class="bg-blue-300 h-screen w-full flex flex-col justify-center items-center text-sm relative">
+            // the most useful scenerio is select box for v-for
+            <select>
+                <option>Please select one</option>
+                <option v-for="item in list" value="item.age" v-text="item.name"></option>
+            </select>
+            
+        </div>
+        
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    list: [
+                        { name: 'John', age: 25 },
+                        { name: 'Jane', age: 20 },
+                    ]
+                }
+            });
+        </script>
+    </body>
+</html>

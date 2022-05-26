@@ -1,0 +1,57 @@
+components
+---------------
+how to create component??
+ this is the function that we can call inside vue it will take 2 parameter the 1st one is the name of the component the 2nd is going to be simply an object which is very similar to the object below
+             var app = new Vue({
+                el: '#app',
+                data: {
+                    
+                }
+            });
+            
+            the only slight difference is we don't have here root which is el: vue only have one single root elememt
+ ---------------------------------           -
+ 2.what is template key inside component?
+ 
+  // template is the simply way we define the html or markup that is going to be outputed 
+  -------------------------------
+  
+  3.what is the difference between the data prop inside component and inside vue object?
+   // let's try to add data inside component... there is a caviet in the object down we have data that is just an object but inside component we can't have such a data the reason for that is a component has to have its own data..to have its own data it's actually need to be a fuction
+                //so this is going to be function that return an object that's the only difference between the data prop in component and in below new vue obj..so again it's a function that returns an object versus data key that has an object already
+-------------------------------------------------------------
+e.g
+<html>
+    <head>
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+             // just like custom html tag we can we can just open and close the component like this
+            <first-component></first-component>
+        </div>
+        
+        <script>
+            Vue.component('first-component', {
+                // template is the simply way we define the html or markup that is going to be outputed
+                template: '<div>Hello from Component {{ message }}</div>',
+                 // let's try to add data inside component... there is a caviet in the object down we have data that is just an object but inside component we can't have such a data the reason for that is a component has to have its own data..to have its own data it's actually need to be a fuction
+                //so this is going to be function that return an object that's the only difference between the data prop in component and in below new vue obj..so again it's a function that returns an object versus data key that has an object already
+                
+                data: function () {
+                    return {
+                        message: 'Hello from Data'
+                    }
+                }
+            });
+            
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    
+                }
+            });
+        </script>
+    </body>
+</html>

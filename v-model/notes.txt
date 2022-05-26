@@ -1,0 +1,39 @@
+v-model directive
+--------------------------
+ // v-model will allow you to tie an input field in your html to your actual data property in your vue instansce
+
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        
+        <!-- Let's add Vue here -->
+        <div id="app">
+             // to bind this input field into data property's field property all i need to add a v-model directive and we need to set the attribute equals to the key that i'm using in this case 'field'
+            
+            <input name="field" v-model="field" />
+            
+            <p>The current values is: {{ exclamation }}</p>
+             <p>The current values is: {{ field }}</p>
+            
+        </div>
+        
+        <script>
+             // v-model will allow you to tie an input field in your html to your actual data property in your vue instansce
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    ,
+                // any thing i type inside input field will automatically saved in this property
+                    field: '',
+                },
+                computed: {
+                    exclamation: function () {
+                        return this.field + '!';
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

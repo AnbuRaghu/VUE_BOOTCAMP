@@ -1,0 +1,72 @@
+<html>
+    <head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="index.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        
+    </head>
+    <body>
+        <div id="app">
+            
+            <nav class="nav-wrapper">
+                
+                <div class="logo">
+                    Vue
+                </div>
+                <div class="flex">
+                    <div v-for="item in nav">
+                        <a :href="item.link" 
+                            class="link-item"
+                            // we set the active class 
+                            :class="[ (item.subLinkModal) ? 'link-active' : '' ]"
+                            @click="toggleSubModal(item)">
+                                {{ item.title }}
+                        </a>
+                          // here we check if the item has key sublinks then only display the sublinks
+                        
+                        <template v-if="item.subLinks && item.subLinkModal">
+                            <div class="sublinks">
+                                <a v-for="subLink in item.subLinks" :href="subLink.link" class="link-item">{{ subLink.title }}</a>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+                
+            </nav>
+            
+            <div class="body-text">
+                Learning Vue on Scrimba!
+            </div>
+            
+        </div>
+        
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    nav: [
+                        { title: 'Home', link: '#home' },
+                        { title: 'About', link: '#about', subLinks: [
+                            { title: 'Audio', link: '#audio' },
+                            { title: 'Video', link: '#video' },
+                            { title: 'Web', link: '#web' },
+                        ], subLinkModal: false },
+                           //what if if we need sublinks forservices we add sublinks array this is an nested array
+                        { title: 'Services', link: '#services', subLinks: [
+                            { title: 'Audio', link: '#audio' },
+                            { title: 'Video', link: '#video' },
+                            { title: 'Web', link: '#web' },
+                        ], subLinkModal: false },
+                    ]
+                },
+                methods: {
+                    toggleSubModal: function (item) {
+                        if (item.subLinks) {
+                            item.subLinkModal = ! item.subLinkModal;
+                        }
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

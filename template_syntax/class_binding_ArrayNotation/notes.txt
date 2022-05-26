@@ -1,0 +1,118 @@
+ class binding array syntax 
+ ----------------------------
+ here instead of pass through an object we pass through an array like this
+ e.g1
+ -------
+<html>
+    <head>
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="index.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        
+        <style>
+            .danger {
+                color: red;
+            }
+            .active {
+                color: green;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app" class="bg-blue-300 h-screen w-full flex flex-col justify-center items-center text-sm relative">
+              class binding aray syntax here instead of pass through an object we pass through an array like this
+            <div v-bind:class="[activeClass]">Text</div>
+            
+        </div>
+        
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    // we can set many classes here active font bold,text-xl are tailwaind classes
+                    activeClass: 'active font-bold text-xl',
+                },
+            });
+        </script>
+    </body>
+</html>
+----------------------------------------------------
+  // we can use conditional only in array syntax we can#t use this in object syntax..this is y array notation have advantages over object notation
+e.g2)
+
+<html>
+    <head>
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="index.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        
+        <style>
+            .danger {
+                color: red;
+            }
+            .active {
+                color: green;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app" class="bg-blue-300 h-screen w-full flex flex-col justify-center items-center text-sm relative">
+                    // we can use conditional only in array syntax we can#t use this in object syntax..this is y array notation have advantages over object notation
+            <div v-bind:class="[isActive ? activeClass : errorClass]">Text</div>
+            
+        </div>
+        
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    isActive: true,
+                    activeClass: 'active',
+                    errorClass: 'danger',
+                },
+            });
+        </script>
+    </body>
+</html>
+----------------------------------------------------------------
+e.g3
+------------
+   //vue actually lets you combine object notation with array notation
+             // here we say apply active class if isaActive is true and we can also add more classes comma separated
+             ------
+             
+             <html>
+    <head>
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="index.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        
+        <style>
+            .danger {
+                color: red;
+            }
+            .active {
+                color: green;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app" class="bg-blue-300 h-screen w-full flex flex-col justify-center items-center text-sm relative">
+                 //vue actually lets you combine object notation with array notation
+             // here we say apply active class if isaActive is true and we can also add more classes comma separated
+            <div v-bind:class="[{ active: isActive }, 'font-bold']">Text</div>
+            
+        </div>
+        
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    isActive: true,
+                    activeClass: 'active',
+                    errorClass: 'danger',
+                },
+            });
+        </script>
+    </body>
+</html>

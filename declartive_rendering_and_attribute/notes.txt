@@ -1,0 +1,32 @@
+
+
+Declarative Rendering and attributes
+-------------------------------------------
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        
+        <!-- Let's add Vue here -->
+        <div id="app" title="{{message}}">// here we do so,when we hover over this title we don't get actual message as title to solve this vue gives a binding way like below
+            {{ message + 'in' + platform }} // we can have alots of js var here as it's js block, we have to use v-bind: and a colon
+             <div id="app" v-bind:title="message">
+                 // we can also reduce this v-bind furthermore like below by avoiding v-bind and only using :
+                   <div id="app" :title="message">
+        </div>
+        
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    'message': 'Learning Vue',
+                    'platform': 'Scrimba'
+                }
+            });
+        </script>
+    </body>
+</html>
+* in html ttribute if we wanna use the data object value, we have to bind that attribute to vue shown above
+<div id="app" :title="message"> or
+ <div id="app" v-bind:title="message">

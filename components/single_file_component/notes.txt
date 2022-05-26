@@ -1,0 +1,41 @@
+vue can be installed through vue cli like react
+extensions for vue vue component is .vue
+
+e.g!
+------
+import Vue from 'vue';
+import TestComponent from './TestComponent'
+// 1st name of the component and the the component we want to render
+Vue.component('test-component', TestComponent);
+
+new Vue({
+    el: '#app',
+    
+    data: {
+        message: 'test'
+    }
+});
+e.g2
+-----
+
+
+
+// the way single file component works is a liitle bit cool format it allows to put your template your script and your styles
+like this
+<template></template> // here we write our html
+
+<script></script>
+
+<style></style>
+
+--------------
+<template>
+    // inside template we need a single wrappoing element that wraps everything
+    <div>
+        
+    </div>
+</template>
+
+<script></script>
+
+<style></style>

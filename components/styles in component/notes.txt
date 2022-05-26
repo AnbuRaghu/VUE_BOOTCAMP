@@ -1,0 +1,32 @@
+Styles in components
+---------------
+// the attribute scoped for style tag is making this style only to this component in other word it scops any styling to just this component itself..in tis way we can have many classes in the same name for each component so that each styling only affects the particular component like this.
+
+<style scoped></style>
+
+e.g
+<template>
+    <div class="wrapper">
+        <a href="#">Link</link>
+    </div>
+</template>
+
+<script>
+    module.exports = {
+        data: function () {
+            return {
+                
+            }
+        }
+    }
+</script>
+
+<style scoped>
+    .wrapper {
+        background: #ccc;
+        margin: 15px;
+    }
+    a {
+        font-size: 100px;
+    }
+</style>

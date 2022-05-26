@@ -1,0 +1,28 @@
+import Vue from 'vue';
+import List from './components/List';
+// there are two way to register a component 
+// 1st way is 
+//Vue.component(name,{})
+// 2nd way 
+// inside vue instance like below
+
+new Vue({
+    el: '#app',
+    // this too allow us to register the component but not globally but when we do Vue.component(name,{}), it registers the component globally
+    components: {
+        List
+    },
+    
+    data: {
+        item: '',
+        items: ['item1', 'item2']
+    },
+    
+    methods: {
+        addItem: function () {
+            // this.items.push(this.item);
+            this.items.unshift(this.item);
+            this.item = '';
+        }
+    }
+});

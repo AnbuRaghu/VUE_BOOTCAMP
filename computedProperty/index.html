@@ -1,0 +1,34 @@
+<html>
+    <head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        
+        <!-- Let's add Vue here -->
+        <div id="app">
+            
+            {{ reversedMessage }}
+            
+        </div>
+        
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    message: 'Learning Vue'
+                },
+                 // computed property are written just like functions are
+                computed: {
+                    exclamation: function() {
+                         // to access the data we have to use this keyword
+                        return this.message + '!!!';
+                    },
+                    
+                    reversedMessage: function () {
+                        return this.exclamation.split('').reverse().join('');
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

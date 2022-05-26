@@ -1,0 +1,80 @@
+  //BINDING INline styles we can use v-bind:style
+  ---------------------------------------------------
+  e.g01)
+  <html>
+    <head>
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="index.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app" class="bg-blue-300 h-screen w-full flex flex-col justify-center items-center text-sm relative">
+            //BINDING INline styles we can use v-bind:style
+            <div v-bind:style="{ color: '#cccccc' }">Text</div>
+            
+        </div>
+        
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    
+                },
+            });
+        </script>
+    </body>
+</html>
+--------------------------------------------------------------
+e.g)02
+  //for example we can use  fontSize with camel case 
+  <html>
+    <head>
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="index.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app" class="bg-blue-300 h-screen w-full flex flex-col justify-center items-center text-sm relative">
+             //for example we can use  fontSize with camel case 
+            <div v-bind:style="{ color: myColor, fontSize: size + 'px' }">Text</div>
+            
+        </div>
+        
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    myColor: 'red',
+                    size: 100,
+                },
+            });
+        </script>
+    </body>
+</html>
+----------------------------------------------------
+e.g03)
+        // we can also refer style with an object
+        <html>
+    <head>
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="index.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app" class="bg-blue-300 h-screen w-full flex flex-col justify-center items-center text-sm relative">
+            // we can also refer style with an object
+            <div v-bind:style="myStyles">Text</div>
+            
+        </div>
+        
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    myStyles: { color: 'red', fontSize: 100 + 'px' },
+                
+                },
+            });
+        </script>
+    </body>
+</html>
